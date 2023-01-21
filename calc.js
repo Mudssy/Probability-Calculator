@@ -20,14 +20,16 @@ class Probabilities{
         this.bGNa = null;
         this.NbGa = null;
         this.NbGNa = null;
+        this.mutually_exclusive = false;
+        this.independent = false;
         this.calculate_all()
         this.display()
     }
     display()
     {
-        console.log("P(a) = " + a);
-        console.log("P(b) = " + b);
-        console.log("P(¬a) = " + Na);
+        console.log("P(a) = " + this.a);
+        console.log("P(b) = " + this.b);
+        console.log("P(¬a) = " + this.Na);
         console.log("P(¬b) = " + Nb);
         console.log("");
         console.log("P(a U b) = " + aUb);
@@ -53,102 +55,102 @@ class Probabilities{
     }
     calculate_all(){
         for (let i = 0; i < 10; i++){
-            calc_a();
-            calc_b();
-            calc_Na();
-            calc_Nb();
-            calc_aUb();
-            calc_aUNb();
-            calc_NaUb();
-            calc_NaUNb();
-            calc_aAb();
-            calc_aANb();
-            calc_NaAb();
-            calc_NaANb();
-            calc_aGb();
-            calc_aGNb();
-            calc_NaGb();
-            calc_NaGNb();
-            calc_bGa();
-            calc_bGNa();
-            calc_NbGa();
-            calc_NbGNa();
+            this.calc_a();
+            this.calc_b();
+            this.calc_Na();
+            this.calc_Nb();
+            this.calc_aUb();
+            this.calc_aUNb();
+            this.calc_NaUb();
+            this.calc_NaUNb();
+            this.calc_aAb();
+            this.calc_aANb();
+            this.calc_NaAb();
+            this.calc_NaANb();
+            this.calc_aGb();
+            this.calc_aGNb();
+            this.calc_NaGb();
+            this.calc_NaGNb();
+            this.calc_bGa();
+            this.calc_bGNa();
+            this.calc_NbGa();
+            this.calc_NbGNa();
         }
     }
     calc_aUb()
     {
-        if (a != null && b!= null && aAb!= null){
-            aUb = a + b - aAb;
+        if (this.a != null && this.b!= null && this.aAb!= null){
+            this.aUb = this.a + this.b - this.aAb;
         }
-        else if (mutually_exclusive && a != null && b!= null){
-            aUb = a + b;
+        else if (this.mutually_exclusive && this.a != null && this.b!= null){
+            aUb = this.a + this.b;
         }
     }
     
     calc_aUNb(){
-        if (a != null && Nb!= null && aANb!= null){
-            aUNb = a + Nb - aANb;
+        if (this.a != null && Nb!= null && aANb!= null){
+            aUNb = this.a + Nb - aANb;
         }
     }
     
     calc_NaUb(){
-        if (Na != null && b!= null && NaAb!= null){
-            NaUb = Na + b - NaAb;
+        if (this.Na != null && this.b!= null && NaAb!= null){
+            NaUb = this.Na + this.b - NaAb;
         }
     }
     
     calc_NaUNb(){
-        if (Na != null && Nb!= null && NaANb!= null){
-            NaUNb = Na + Nb - NaANb;
+        if (this.Na != null && Nb!= null && NaANb!= null){
+            NaUNb = this.Na + Nb - NaANb;
         }
     }
     
     calc_aAb()
     {
-        if (a != null && b!= null && aUb != null){
-            aAb = a + b - aUb;
+        if (this.a != null && this.b!= null && aUb != null){
+            aAb = this.a + this.b - aUb;
         }
-        else if (a != null && bGa != null){
-            aAb = a * bGa;
+        else if (this.a != null && bGa != null){
+            aAb = this.a * bGa;
         }
-        else if (b != null && aGb != null){
-            aAb = b * aGb;
+        else if (this.b != null && aGb != null){
+            aAb = this.b * aGb;
         }
-        else if (independent && a != null && b != null){
-            aAb = a*b;
+        else if (independent && this.a != null && this.b != null){
+            aAb = this.a*this.b;
         }
     }
     
     calc_aANb(){
-        if (a != null && Nb!= null && aUNb != null){
-            aANb = a + Nb - aUNb;
+        if (this.a != null && Nb!= null && aUNb != null){
+            aANb = this.a + Nb - aUNb;
         }
-        else if (a != null && NbGa != null){
-            aANb = a * NbGa;
+        else if (this.a != null && NbGa != null){
+            aANb = this.a * NbGa;
         }
-        else if (b != null && aGb != null){
+        else if (this.b != null && aGb != null){
             aANb = Nb * aGNb;
         }
     }
     
     calc_NaAb(){
-        if (Na != null && b!= null && NaUb != null){
-            NaAb = Na + b - NaUb;
+        if (this.Na != null && this.b!= null && NaUb != null){
+            NaAb = this.Na + this.b - NaUb;
         }
-        else if (Na != null && bGNa != null){
-            NaAb = Na * bGNa;
+        else if (this.Na != null && bGNa != null){
+            NaAb = this.Na * bGNa;
         }
-        else if (b != null && NaGb != null){
-            NaAb = b * NaGb;
+        else if (this.b != null && NaGb != null){
+            NaAb = this.b * NaGb;
         }
     }
     
     calc_NaANb(){
-        if (Na != null && Nb!= null && NaUNb != null){
-            NaANb = Na + Nb - NaUNb;
+        if (this.Na != null && Nb!= null && NaUNb != null){
+            NaANb = this.Na + Nb - NaUNb;
         }
-        else if (Na != null && NbGNa != null){
-            NaANb = Na * NbGNa;
+        else if (this.Na != null && NbGNa != null){
+            NaANb = this.Na * NbGNa;
         }
         else if (Nb != null && NaGNb != null){
             NaANb = Nb * NaGNb;
@@ -157,50 +159,50 @@ class Probabilities{
     
     
     calc_Na(){
-        if (a != null){
-            Na = 1-a;
+        if (this.a != null){
+            this.Na = 1-this.a;
         }
-        else if (NaUb != null && NaAb != null && b != null){
-            Na = NaUb + NaAb -b;
+        else if (NaUb != null && NaAb != null && this.b != null){
+            this.Na = NaUb + NaAb -this.b;
         }
         else if (NaAb != null && bGNa != null && bGNa != 0){
-            Na = NaAb / bGNa;
+            this.Na = NaAb / bGNa;
         }
     }
     
     calc_Nb(){
-        if (b != null){
-            Nb = 1-b;
+        if (this.b != null){
+            Nb = 1-this.b;
         }
-        else if (aUNb != null && aANb != null && a != null){
-            a = aUNb + aANb -a;
+        else if (aUNb != null && aANb != null && this.a != null){
+            this.a = aUNb + aANb -this.a;
         }
         else if (aANb != null && aGNb != null && aGNb != 0){
-            a = aANb / aGNb;
+            this.a = aANb / aGNb;
         }
     }
     
     calc_a(){
-        if (Na != null){
-            a = 1-Na;
+        if (this.Na != null){
+            this.a = 1-this.Na;
         }
-        else if (aUb != null && aAb != null && b != null){
-            a = aUb + aAb -b;
+        else if (aUb != null && aAb != null && this.b != null){
+            this.a = aUb + aAb -this.b;
         }
         else if (aAb != null && bGa != null && bGa != 0){
-            a = aAb / bGa;
+            this.a = aAb / bGa;
         }
     }
     
     calc_b(){
         if (Nb != null){
-            b = 1-Nb;
+            this.b = 1-Nb;
         }
-        else if (aUb != null && aAb != null && a != null){
-            a = aUb + aAb -a;
+        else if (aUb != null && aAb != null && this.a != null){
+            this.a = aUb + aAb -this.a;
         }
         else if (aAb != null && aGb != null && aGb != 0){
-            a = aAb / aGb;
+            this.a = aAb / aGb;
         }
     }
     
@@ -209,11 +211,11 @@ class Probabilities{
         if (NaGb != null){
             aGb = 1 - NaGb;
         }
-        else if (aAb != null && b != null && b != 0){
-            aGb = aAb / b;
+        else if (aAb != null && this.b != null && this.b != 0){
+            aGb = aAb / this.b;
         }
-        else if (bGa != null && a != null && bGNa != null && Na != null){
-            aGb = (bGa * a)/(bGa * a + bGNa * Na);
+        else if (bGa != null && this.a != null && bGNa != null && this.Na != null){
+            aGb = (bGa * this.a)/(bGa * this.a + bGNa * this.Na);
         }
     }
     
@@ -224,8 +226,8 @@ class Probabilities{
         else if (aANb != null && Nb != null && Nb!=0){
             aGNb = aANb / Nb;
         }
-        else if (NbGa != null && a != null && NbGNa != null && Na != null){
-            aGNb = (NbGa * a)/(NbGa * a + NbGNa * Na);
+        else if (NbGa != null && this.a != null && NbGNa != null && this.Na != null){
+            aGNb = (NbGa * this.a)/(NbGa * this.a + NbGNa * this.Na);
         }
     }
     
@@ -233,11 +235,11 @@ class Probabilities{
         if (aGb != null){
             NaGb = 1 - aGb;
         }
-        else if (NaAb != null && b != null && b != 0){
-            NaGb = NaAb / b;
+        else if (NaAb != null && this.b != null && this.b != 0){
+            NaGb = NaAb / this.b;
         }
-        else if (bGNa != null && Na != null && bGa != null && a != null){
-            NaGb = (bGNa * Na)/(bGNa * Na + bGa * a);
+        else if (bGNa != null && this.Na != null && bGa != null && this.a != null){
+            NaGb = (bGNa * this.Na)/(bGNa * this.Na + bGa * this.a);
         }
     }
     
@@ -245,11 +247,11 @@ class Probabilities{
         if (aGNb != null){
             NaGNb = 1 - aGNb;
         }
-        else if (NaANb != null && Nb != null && b != 0){
-            NaGNb = NaANb / b;
+        else if (NaANb != null && Nb != null && this.b != 0){
+            NaGNb = NaANb / this.b;
         }
-        else if (NbGNa != null && Na != null && NbGa != null && a != null){
-            NaGNb = (NbGNa * Na)/(NbGNa * Na + bGa * a);
+        else if (NbGNa != null && this.Na != null && NbGa != null && this.a != null){
+            NaGNb = (NbGNa * this.Na)/(NbGNa * this.Na + bGa * this.a);
         }
     }
     
@@ -257,11 +259,11 @@ class Probabilities{
         if (NbGa != null){
             bGa = 1 - NbGa;
         }
-        else if (aAb != null && a != null && a != 0){
-            bGa = aAb / a;
+        else if (aAb != null && this.a != null && this.a != 0){
+            bGa = aAb / this.a;
         }
-        else if (aGb != null && b != null && aGNb != null && Nb != null){
-            bGa = (aGb * b)/(aGb * b + aGNb * Nb);
+        else if (aGb != null && this.b != null && aGNb != null && Nb != null){
+            bGa = (aGb * this.b)/(aGb * this.b + aGNb * Nb);
         }
     }
     
@@ -269,11 +271,11 @@ class Probabilities{
         if (NbGNa != null){
             bGNa = 1 - NbGNa;
         }
-        else if (NaAb != null && Na != null && Na != 0){
-            bGNa = NaAb / Na;
+        else if (NaAb != null && this.Na != null && this.Na != 0){
+            bGNa = NaAb / this.Na;
         }
-        else if (NaGb != null && b != null && NaGNb != null && Nb != null){
-            bGNa = (NaGb * b)/(NaGb * b + NaGNb * Nb);
+        else if (NaGb != null && this.b != null && NaGNb != null && Nb != null){
+            bGNa = (NaGb * this.b)/(NaGb * this.b + NaGNb * Nb);
         }
     }
     
@@ -281,11 +283,11 @@ class Probabilities{
         if (bGa != null){
             NbGa = 1 - bGa;
         }
-        else if (aANb != null && a != null && a != 0){
-            NbGa = aANb / a;
+        else if (aANb != null && this.a != null && this.a != 0){
+            NbGa = aANb / this.a;
         }
-        else if (aGNb != null && Nb != null && aGb != null && b != null){
-            NbGa = (aGNb * Nb)/(aGNb * Nb + aGb * b);
+        else if (aGNb != null && Nb != null && aGb != null && this.b != null){
+            NbGa = (aGNb * Nb)/(aGNb * Nb + aGb * this.b);
         }
     }
     
@@ -293,13 +295,15 @@ class Probabilities{
         if (bGNa != null){
             NbGNa = 1 - bGNa;
         }
-        else if (NaANb != null && Na != null && Na != 0){
-            NbGNa = NaANb / Na;
+        else if (NaANb != null && this.Na != null && this.Na != 0){
+            NbGNa = NaANb / this.Na;
         }
-        else if (NaGNb != null && Nb != null && NaGb != null && b != null){
-            NbGNa = (NaGNb * Nb)/(NaGNb * Nb + NaGb * b);
+        else if (NaGNb != null && Nb != null && NaGb != null && this.b != null){
+            NbGNa = (NaGNb * Nb)/(NaGNb * Nb + NaGb * this.b);
         }
     }
+}
 
-    
+function calculateProbs(){
+    var probs = new Probabilities()
 }
