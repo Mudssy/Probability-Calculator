@@ -12,7 +12,7 @@ class Probabilities{
         this.aANb = null;
         this.NaAb = null;
         this.NaANb = null;
-        this.aGb = null;
+        this.aGb = 0.1;
         this.aGNb = null;
         this.NaGb = null;
         this.NaGNb = null;
