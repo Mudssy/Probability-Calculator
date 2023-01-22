@@ -1,27 +1,27 @@
 class Probabilities{
-    constructor(){
-        this.a = 0.125;
-        this.b = 0.125;
-        this.Na = null;
-        this.Nb  =null;
-        this.aUb = null;
-        this.aUNb = null;
-        this.NaUb = null;
-        this.NaUNb = null;
-        this.aAb = null;
-        this.aANb = null;
-        this.NaAb = null;
-        this.NaANb = null;
-        this.aGb = 0.1;
-        this.aGNb = null;
-        this.NaGb = null;
-        this.NaGNb = null;
-        this.bGa = null;
-        this.bGNa = null;
-        this.NbGa = null;
-        this.NbGNa = null;
-        this.mutually_exclusive = false;
-        this.independent = true;
+    constructor(a, b, Na, Nb, aUb, aUNb, NaUb, NaUNb, aAb, aANb, NaAb, NaANb, aGb, aGNb, NaGb, NaGNb, bGa, bGNa, NbGa, NbGNa, mutually_exclusive, independent){
+        this.a = a;
+        this.b = b;
+        this.Na = Na;
+        this.Nb = Nb;
+        this.aUb = aUb;
+        this.aUNb = aUNb;
+        this.NaUb = NaUb;
+        this.NaUNb = NaUNb;
+        this.aAb = aAb;
+        this.aANb = aANb;
+        this.NaAb = NaAb;
+        this.NaANb = NaANb;
+        this.aGb = aGb;
+        this.aGNb = aGNb;
+        this.NaGb = NaGNb;
+        this.NaGNb = NaGNb;
+        this.bGa = bGa;
+        this.bGNa = bGNa;
+        this.NbGa = NbGa;
+        this.NbGNa = NbGNa;
+        this.mutually_exclusive = mutually_exclusive;
+        this.independent = independent;
         this.calculate_all()
         this.display()
     }
@@ -304,6 +304,75 @@ class Probabilities{
     }
 }
 
-function calculateProbs(){
-    var probs = new Probabilities()
+
+function getElementValue(elementID) {
+
+    var num = parseFloat(document.getElementById(elementID).value)
+    
+    if (isNaN(num)) return null
+    else return num
+    
+}
+
+function isElementValid(elementID) {
+    
+    var num = parseFloat(document.getElementById(elementID).value);
+    return (isNaN(num) || (0 <= num && num <= 1));
+
+}
+
+function isValid(){
+    
+    // const ids = ["a", "b", "Na", "Nb", "aUb", "aUNb", "NaUb", "NaUNb", "aAb", "aANb", "NaAb", "NaANb", "aGb", "aGNb", "NaGb", "NaGNb", "bGa", "bGNa", "NbGa", "NbGNa", "mutually_exclusive", "independent"];
+    const ids = ["a", "b", "Na"];
+    var validNums = true;
+
+    return !(ids.map(id => isElementValid(id)).includes(false));
+
+}
+
+function writeErrorMessage() {
+
+    console.log("it do be error msg")    
+
+}
+
+function fillProbabilities() {
+    
+    var a = getElementValue("a")
+    var b = getElementValue("b");
+    var Na = getElementValue("Na");
+    // var Nb = getElementValue("Nb");
+    // var aUb = getElementValue("aUb");
+    // var aUNb = getElementValue("aUNb");
+    // var NaUb = getElementValue("NaUb");
+    // var NaUNb = getElementValue("NaUNb");
+    // var aAb = getElementValue("aAb");
+    // var aANb = getElementValue("aANb");
+    // var NaAb = getElementValue("NaAb");
+    // var NaANb = getElementValue("NaANb");
+    // var aGb = getElementValue("aGb");
+    // var aGNb = getElementValue("aGNb");
+    // var NaGb = getElementValue("NaGNb");
+    // var NaGNb = getElementValue("NaGNb");
+    // var bGa = getElementValue("bGa");
+    // var bGNa = getElementValue("bGNa");
+    // var NbGa = getElementValue("NbGa");
+    // var NbGNa = getElementValue("NbGNa");
+    // var mutually_exclusive = document.getElementById("mutually_exclusive").value;
+    // var independent = document.getElementById("independent").value;
+    
+    // var probs = new Probabilities(a, b, Na, Nb, aUb, aUNb, NaUb, NaUNb, aAb, aANb, NaAb, NaANb, aGb, aGNb, NaGb, NaGNb, bGa, bGNa, NbGa, NbGNa, mutually_exclusive, independent)
+
+    console.log(a)
+    console.log(b)
+    console.log(Na)
+
+}
+
+function updateDocument() {
+
+    if (isValid()) fillProbabilities()
+    else writeErrorMessage()
+
 }
