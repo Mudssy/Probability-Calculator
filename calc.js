@@ -77,6 +77,15 @@ class Probabilities{
             this.calc_NbGNa();
         }
     }
+
+    validateValues() {
+
+        const ids = ["a", "b", "Na", "Nb", "aUb", "aUNb", "NaUb", "NaUNb", "aAb", "aANb", "NaAb", "NaANb", "aGb", "aGNb", "NaGb", "NaGNb", "bGa", "bGNa", "NbGa", "NbGNa"];
+        
+        return !(ids.map(id => {0 <= this[id] && this[id] <= 1}).includes(false));
+        
+    }
+    
     calc_aUb()
     {
         if (this.a != null && this.b!= null && this.aAb!= null){
@@ -306,7 +315,7 @@ class Probabilities{
 
 
 function getElementValue(elementID) {
-
+    
     var num = parseFloat(document.getElementById(elementID).value)
     
     if (isNaN(num)) return null
@@ -314,27 +323,32 @@ function getElementValue(elementID) {
     
 }
 
+function getSwitchState(elementID) {
+    
+    return (document.getElementById(elementID).checked)
+    
+}
+
 function isElementValid(elementID) {
     
     var num = parseFloat(document.getElementById(elementID).value);
     return (isNaN(num) || (0 <= num && num <= 1));
-
+    
 }
 
 function isValid(){
     
-    // const ids = ["a", "b", "Na", "Nb", "aUb", "aUNb", "NaUb", "NaUNb", "aAb", "aANb", "NaAb", "NaANb", "aGb", "aGNb", "NaGb", "NaGNb", "bGa", "bGNa", "NbGa", "NbGNa", "mutually_exclusive", "independent"];
-    const ids = ["a", "b", "Na"];
+    const ids = ["a", "b", "Na", "Nb", "aUb", "aUNb", "NaUb", "NaUNb", "aAb", "aANb", "NaAb", "NaANb", "aGb", "aGNb", "NaGb", "NaGNb", "bGa", "bGNa", "NbGa", "NbGNa"];
     var validNums = true;
-
+    
     return !(ids.map(id => isElementValid(id)).includes(false));
-
+    
 }
 
 function writeErrorMessage() {
-
-    console.log("it do be error msg")    
-
+    
+    document.getElementById("message").innerHTML = "<h3>Probabilities Are Impossible!!!</h3>";
+    
 }
 
 function fillProbabilities() {
@@ -342,37 +356,75 @@ function fillProbabilities() {
     var a = getElementValue("a")
     var b = getElementValue("b");
     var Na = getElementValue("Na");
-    // var Nb = getElementValue("Nb");
-    // var aUb = getElementValue("aUb");
-    // var aUNb = getElementValue("aUNb");
-    // var NaUb = getElementValue("NaUb");
-    // var NaUNb = getElementValue("NaUNb");
-    // var aAb = getElementValue("aAb");
-    // var aANb = getElementValue("aANb");
-    // var NaAb = getElementValue("NaAb");
-    // var NaANb = getElementValue("NaANb");
-    // var aGb = getElementValue("aGb");
-    // var aGNb = getElementValue("aGNb");
-    // var NaGb = getElementValue("NaGNb");
-    // var NaGNb = getElementValue("NaGNb");
-    // var bGa = getElementValue("bGa");
-    // var bGNa = getElementValue("bGNa");
-    // var NbGa = getElementValue("NbGa");
-    // var NbGNa = getElementValue("NbGNa");
-    // var mutually_exclusive = document.getElementById("mutually_exclusive").value;
-    // var independent = document.getElementById("independent").value;
+    var Nb = getElementValue("Nb");
+    var aUb = getElementValue("aUb");
+    var aUNb = getElementValue("aUNb");
+    var NaUb = getElementValue("NaUb");
+    var NaUNb = getElementValue("NaUNb");
+    var aAb = getElementValue("aAb");
+    var aANb = getElementValue("aANb");
+    var NaAb = getElementValue("NaAb");
+    var NaANb = getElementValue("NaANb");
+    var aGb = getElementValue("aGb");
+    var aGNb = getElementValue("aGNb");
+    var NaGb = getElementValue("NaGNb");
+    var NaGNb = getElementValue("NaGNb");
+    var bGa = getElementValue("bGa");
+    var bGNa = getElementValue("bGNa");
+    var NbGa = getElementValue("NbGa");
+    var NbGNa = getElementValue("NbGNa");
+    var mutually_exclusive = getSwitchState("mutually_exclusive");
+    var independent = getSwitchState("independent");
     
-    // var probs = new Probabilities(a, b, Na, Nb, aUb, aUNb, NaUb, NaUNb, aAb, aANb, NaAb, NaANb, aGb, aGNb, NaGb, NaGNb, bGa, bGNa, NbGa, NbGNa, mutually_exclusive, independent)
+    var probs = new Probabilities(a, b, Na, Nb, aUb, aUNb, NaUb, NaUNb, aAb, aANb, NaAb, NaANb, aGb, aGNb, NaGb, NaGNb, bGa, bGNa, NbGa, NbGNa, mutually_exclusive, independent)
+    
+    return probs
+    
+}
 
-    console.log(a)
-    console.log(b)
-    console.log(Na)
+function setValues(probs) {
+    
+    const ids = ["a", "b", "Na", "Nb", "aUb", "aUNb", "NaUb", "NaUNb", "aAb", "aANb", "NaAb", "NaANb", "aGb", "aGNb", "NaGb", "NaGNb", "bGa", "bGNa", "NbGa", "NbGNa", "mutually_exclusive", "independent"];
+    
+    ids.forEach(id => {
+        
+        var testing = document.getElementById(id);
+        var prob = probs[id]
 
+        if (prob == null) testing.value = ""
+        else testing.value = Math.round(prob * 100000) / 100000;
+
+    })
+    
+}
+
+function clearDocument() {
+    
+    const ids = ["a", "b", "Na", "Nb", "aUb", "aUNb", "NaUb", "NaUNb", "aAb", "aANb", "NaAb", "NaANb", "aGb", "aGNb", "NaGb", "NaGNb", "bGa", "bGNa", "NbGa", "NbGNa"];
+
+    ids.forEach(id => {
+
+        document.getElementById(id).value = "";
+
+    })
+    
 }
 
 function updateDocument() {
+    
+    if (isValid()) {
+        
+        var prob = fillProbabilities();
+        
+        if (prob.validateValues()) {
+            document.getElementById("message").innerHTML = "<h3>Calculated the Probabilities!!</h3>";  
+            setValues(prob)
 
-    if (isValid()) fillProbabilities()
+        } else {
+            writeErrorMessage()
+        }
+        
+    }
     else writeErrorMessage()
 
 }
