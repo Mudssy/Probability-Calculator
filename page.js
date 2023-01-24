@@ -1,0 +1,5 @@
+function scrollToInfo() {
+
+    location.hash = "#";
+
+}
