@@ -32,309 +32,326 @@
                 </nav>
         
             <div class="container">
-                <button type="button" class="btn btn-primary center" onclick="calculateProbs()">calc</button>
-        
-                <div class="card text-center bg-transparent border-0">
-                    <div class="card-body">
-                        <div class="d-flex flex-wrap justify-content-center " >
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(a)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="a">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="b">
+                <div class="row py-4">
+
+                    <div class="card text-center bg-transparent border-0">
+                        <div class="card-body">
+                            <div class="d-flex flex-wrap justify-content-center " >
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(a)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="a">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(¬a)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="Na">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(¬b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="Nb">
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="b">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(a ∪ b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="aUb">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(a ∪ ¬b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="aUNb">
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(¬a)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="Na">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(¬a ∪ b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="NaUb">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(¬a ∪ ¬b)</h5>
-                                        </div>
-                                        <div class="col-6 text-start">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="NaUNb">
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(¬b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="Nb">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(a ∩ b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="aAb">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(a ∩ ¬b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="aANb">
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(a ∪ b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="aUb">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(¬a ∩ b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="NaAb">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(¬a ∩ ¬b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="NaANb">
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(a ∪ ¬b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="aUNb">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(a | b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="aGb">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(a | ¬b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="aGNb">
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(¬a ∪ b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="NaUb">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(¬a | b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="NaGb">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(¬a | ¬b)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="NaGNb">
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(¬a ∪ ¬b)</h5>
+                                            </div>
+                                            <div class="col-6 text-start">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="NaUNb">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(b | a)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="bGa">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(b | ¬a)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="bGNa">
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(a ∩ b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="aAb">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(¬b | a)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="NbGa">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 text-start">
-                                            <h5>P(¬b | ¬a)</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="number" min="0" max="1" step=".001" class="form-control" id="NbGNa">
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(a ∩ ¬b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="aANb">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light justify-content-center"style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-9">
-                                            <h5>Independent</h5>
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(¬a ∩ b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="NaAb">
+                                            </div>
                                         </div>
-                                        <div class="col-3">
-                                            <div class=" justify-content-center">
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox" role="switch" id="independent" style="transform: scale(1.5);" >
+                                    </div>
+                                </div>
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(¬a ∩ ¬b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="NaANb">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(a | b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="aGb">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(a | ¬b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="aGNb">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(¬a | b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="NaGb">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(¬a | ¬b)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="NaGNb">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(b | a)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="bGa">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(b | ¬a)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="bGNa">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(¬b | a)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="NbGa">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6 text-start">
+                                                <h5>P(¬b | ¬a)</h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="number" min="0" max="1" step=".001" class="form-control" id="NbGNa">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light justify-content-center"style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-9">
+                                                <h5>Independent</h5>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class=" justify-content-center">
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" role="switch" id="independent" style="transform: scale(1.5);" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-2 p-2 bg-opacity-50 bg-light justify-content-center" style="width: 350px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <h5>Mutually exclusive</h5>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="justify-content-center">
+                                                    <div class="form-check form-switch" style="vertical-align: middle;">
+                                                        <input class="form-check-input" type="checkbox" role="switch" id="mutually_exclusive" style="transform: scale(1.5);" >
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card m-2 p-2 bg-opacity-50 bg-light justify-content-center" style="width: 350px;">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <h5>Mutually exclusive</h5>
-                                        </div>
-                                        <div class="col-3">
-                                            <div class="justify-content-center">
-                                                <div class="form-check form-switch" style="vertical-align: middle;">
-                                                    <input class="form-check-input" type="checkbox" role="switch" id="mutually_exclusive" style="transform: scale(1.5);" >
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
+                            
                         </div>
-                        
-                        
-                    </div>
-                    <div class="card-footer">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-3">
-                                    <div class="card justify-content-center">
-                                        <input class="btn btn-primary" type="submit" value="Calculate" onclick="updateDocument()"></input>
+                        <div class="card-footer">
+                            <div class="container">
+                                <div class="row align-items-center">
+                                    <div class="col-3">
+                                        <div class="card justify-content-center">
+                                            <input class="btn btn-primary" type="submit" value="Calculate" onclick="updateDocument()"></input>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="card justify-content-center">
-                                        <input class="btn btn-primary" type="submit" value="Clear" onclick="clearDocument()"></input>
+                                    <div class="col-3">
+                                        <div class="card justify-content-center">
+                                            <input class="btn btn-primary" type="submit" value="Clear" onclick="clearDocument()"></input>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6 text-center">
-                                    <div class="" id="alert">
-                                        
+                                    <div class="col-6 text-center">
+                                        <div class="" id="alert">
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row py-4">
+                    <div class="card bg-transparent border-0">
+                        <div class="card-body">
+                          <h5 class="card-title">Working out</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <div class="container">
+                            <div class="col-12" id="workingOut">
+
+                            </div>
+
+                          </div> 
+    
+                        </div>
+                      </div> 
+                </div>
+        
         
             </div>
 

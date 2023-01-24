@@ -546,6 +546,22 @@ function displayInfoMessage(message){
 
     `
 }
+function createCardForWorkingOut(workingOut){
+    return `
+    <div class="card m-2 p-2 bg-opacity-50 bg-light justify-content-center">
+        <p class="card-text"> ${workingOut} </p>
+    </div>
+    `
+}
+
+function displayAllWorkingOut(workingOutArr){
+    document.getElementById("workingOut").innerHTML = ""
+    workingOutArr.forEach(work => {
+        document.getElementById("workingOut").innerHTML += createCardForWorkingOut(work)
+
+    })
+    
+}
 
 
 
@@ -612,6 +628,8 @@ function clearDocument() {
 
     })
 
+    document.getElementById("workingOut").innerHTML = ""
+
     displayInfoMessage("Values have been cleared")
     
 }
@@ -630,6 +648,7 @@ function updateDocument() {
                 displayWarningMessage("Not enough information provided to calculate all probabilities")
             }
             console.log(prob.workingOut);
+            displayAllWorkingOut(prob.workingOut);
 
         } else {
             displayDangerMessage("Impossible probabilities given")
