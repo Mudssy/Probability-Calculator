@@ -24,7 +24,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Info</a>
+                            <a class="btn btn-outline-dark" aria-current="page" onclick="scrollToInfo()">Info</a>
                         </li>
                     </ul>
                     </div>
@@ -352,66 +352,55 @@
                       </div> 
                 </div>
         
-        
             </div>
 
-            
         </div>
         
     </div>
-    <footer class="bg-dark text-center text-white">
-        <div class="container p-4">
-        <section class="mb-4">
-            <!-- Facebook -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-facebook-f"></i
-            ></a>
 
-            <!-- Twitter -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-twitter"></i
-            ></a>
-
-            <!-- Google -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-google"></i
-            ></a>
-
-            <!-- Instagram -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-instagram"></i
-            ></a>
-
-            <!-- Linkedin -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-linkedin-in"></i
-            ></a>
-
-            <!-- Github -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-github"></i
-            ></a>
-        </section>
-        <section class="mb-4">
-            <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-            repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-            eum harum corrupti dicta, aliquam sequi voluptate quas.
-            </p>
-        </section>
+    <footer id="info" class="bg-dark text-center text-white">
+        <div class="container p-2">
+            <p>A simple probabilty calculator. Enter the values for the probabilities given to find out the others!</p>
+        </div>
+        <div class="container d-flex flex-wrap justify-content-center">
+            
+            <div class="card bg-dark border-light m-2" style="min-width: 18rem">
+                <div class="card-body">
+                    <h5 class="card-title">Mudassir Ahmad</h5>
+                    <!-- Linkedin -->
+                    <a class="btn btn-outline-light btn-floating m-1" target="_blank" href="https://www.linkedin.com/in/syedmudassirahmad/" role="button">
+                        <span class="bi bi-linkedin"></span>
+                    </a>
+                    <!-- Github -->
+                    <a class="btn btn-outline-light btn-floating m-1" target="_blank" href="https://github.com/mudssy" role="button">
+                        <span class="bi bi-github"></span>&nbsp;@Mudssy
+                    </a>
+                </div>
+            </div>
+            <div class="card bg-dark border-light m-2" style="min-width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Abdullah Beg</h5>
+                    <!-- Linkedin -->
+                    <a class="btn btn-outline-light btn-floating m-1" target="_blank" href="#!" role="button">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <!-- Github -->
+                    <a class="btn btn-outline-light btn-floating m-1" target="_blank" href="https://github.com/abdullah-beg" role="button">
+                        <i class="bi bi-github"></i>&nbsp;@abdullah-beg
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2023 Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/">probability-calculator Ltd.</a>
+        © 2023 Copyright
         </div>
     </footer>
-
-    
     
 
     <script src="particles.js"></script>
     <script type="text/javascript" src="calc.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="page.js"></script>
     
     <div class="bootstrap-on">
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
