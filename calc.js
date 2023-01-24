@@ -54,7 +54,7 @@ class Probabilities{
         console.log("");
     }
     calculate_all(){
-        for (let i = 0; i < 4; i++){
+        for (let i = 0; i < 10; i++){
             this.calc_a();
             this.calc_b();
             this.calc_Na();
@@ -86,7 +86,8 @@ class Probabilities{
 
         const ids = ["a", "b", "Na", "Nb", "aUb", "aUNb", "NaUb", "NaUNb", "aAb", "aANb", "NaAb", "NaANb", "aGb", "aGNb", "NaGb", "NaGNb", "bGa", "bGNa", "NbGa", "NbGNa"];
 
-        
+        var news = ids.map(id => this.aux(this[id]));
+        var conf = news.includes(false);
         return !(ids.map(id => this.aux(this[id])).includes(false));
         
     }
@@ -395,6 +396,21 @@ function displaySuccessMessage(message){
     `
 }
 
+function displayInfoMessage(message){
+    document.getElementById("alert").innerHTML = `
+
+    <div class="alert alert-primary d-flex align-items-center" role="alert">
+        <p>
+            <span class="bi bi-info-circle"> 
+            ${message}
+        </p>
+
+        
+    </div>
+
+    `
+}
+
 
 
 function fillProbabilities() {
@@ -459,6 +475,8 @@ function clearDocument() {
         document.getElementById(id).value = "";
 
     })
+
+    displayInfoMessage("Values have been cleared")
     
 }
 
