@@ -520,7 +520,7 @@ function displayWarningMessage(message){
 function displaySuccessMessage(message){
     document.getElementById("alert").innerHTML = `
 
-    <div class="alert alert-success d-flex align-items-center" role="alert">
+    <div class="alert alert-success d-flex align-items-center" role="alert" style="min-width: 18rem">
         <p>
             <span class="bi bi-check-circle"> 
             ${message}
