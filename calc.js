@@ -492,12 +492,8 @@ function displayDangerMessage(message){
     document.getElementById("alert").innerHTML = `
 
     <div class="alert alert-danger d-flex align-items-center" role="alert">
-        <p>
-            <span class="bi bi-exclamation-triangle"> 
-            ${message}
-        </p>
-
-        
+        <span class="bi bi-exclamation-triangle"> 
+        ${message}      
     </div>
 
     `;
@@ -507,12 +503,8 @@ function displayWarningMessage(message){
     document.getElementById("alert").innerHTML = `
 
     <div class="alert alert-warning d-flex align-items-center" role="alert">
-        <p>
-            <span class="bi bi-exclamation-triangle"> 
-            ${message}
-        </p>
-
-        
+        <span class="bi bi-exclamation-triangle"> 
+        ${message}
     </div>
 
     `;
@@ -521,12 +513,8 @@ function displaySuccessMessage(message){
     document.getElementById("alert").innerHTML = `
 
     <div class="alert alert-success d-flex align-items-center" role="alert">
-        <p>
-            <span class="bi bi-check-circle"> 
-            ${message}
-        </p>
-
-        
+        <span class="bi bi-check-circle"> 
+        ${message}
     </div>
 
     `;
@@ -536,12 +524,8 @@ function displayInfoMessage(message){
     document.getElementById("alert").innerHTML = `
 
     <div class="alert alert-primary d-flex align-items-center" role="alert">
-        <p>
-            <span class="bi bi-info-circle"> 
-            ${message}
-        </p>
-
-        
+        <span class="bi bi-info-circle"> 
+        ${message}
     </div>
 
     `;
