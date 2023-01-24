@@ -22,9 +22,9 @@ class Probabilities{
         this.NbGNa = NbGNa;
         this.mutually_exclusive = mutually_exclusive;
         this.independent = independent;
-        this.workingOut = []
-        this.calculate_all()
-        this.display()
+        this.workingOut = [];
+        this.calculate_all();
+        this.display();
     }
     display()
     {
@@ -56,7 +56,7 @@ class Probabilities{
     }
     calculate_all(){
 
-        var workingOut = []
+        var workingOut = [];
         for (let i = 0; i < 10; i++){
             workingOut.push(this.calc_a());
             workingOut.push(this.calc_b());
@@ -85,7 +85,7 @@ class Probabilities{
     }
 
     aux(value){
-        return 0 <= value && value <= 1
+        return 0 <= value && value <= 1;
     }
 
     validateValues() {
@@ -103,47 +103,47 @@ class Probabilities{
         if (this.aUb == null){
             if (this.a != null && this.b!= null && this.aAb!= null){
                 this.aUb = this.a + this.b - this.aAb;
-                return "P(aUb) = P(a) + P(b) - P(aAb)"
+                return "P(aUb) = P(a) + P(b) - P(aAb)";
             }
             else if (this.mutually_exclusive && this.a != null && this.b!= null){
                 this.aUb = this.a + this.b;
-                return "P(aUb) = P(a) + P(B) reason: Mutually exclusive rule"
+                return "P(aUb) = P(a) + P(B) reason: Mutually exclusive rule";
             }
         }
-        else return ""
+        else return "";
     }
     
     calc_aUNb(){
         if (this.aUNb == null){
             if (this.a != null && this.Nb!= null && this.aANb!= null){
                 this.aUNb = this.a + this.Nb - this.aANb;
-                return "P(aUNb) = P(a) + P(Nb) - P(aANb)"
+                return "P(aUNb) = P(a) + P(Nb) - P(aANb)";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     calc_NaUb(){
         if (this.NaUb == null){
             if (this.Na != null && this.b!= null && this.NaAb!= null){
                 this.NaUb = this.Na + this.b - this.NaAb;
-                return "P(NaUb) = P(Na) + P(b) - P(NaAb)"
+                return "P(NaUb) = P(Na) + P(b) - P(NaAb)";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     calc_NaUNb(){
         if (this.NaUNb == null){
             if (this.Na != null && this.Nb!= null && this.NaANb!= null){
                 this.NaUNb = this.Na + this.Nb - this.NaANb;
-                return "P(NaUNb) = P(Na) + P(Nb) - P(NaANb)"
+                return "P(NaUNb) = P(Na) + P(Nb) - P(NaANb)";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     calc_aAb()
@@ -151,19 +151,19 @@ class Probabilities{
         if (this.aAb == null){
             if (this.a != null && this.b!= null && this.aUb != null){
                 this.aAb = this.a + this.b - this.aUb;
-                return "P(aAb) = P(a) + P(b) - P(aUb)"
+                return "P(aAb) = P(a) + P(b) - P(aUb)";
             }
             else if (this.a != null && this.bGa != null){
                 this.aAb = this.a * this.bGa;
-                return "P(aAb) = P(a) * P(bGa)"
+                return "P(aAb) = P(a) * P(bGa)";
             }
             else if (this.b != null && this.aGb != null){
                 this.aAb = this.b * this.aGb;
-                return "P(aAb) = P(b) * P(aGb)"
+                return "P(aAb) = P(b) * P(aGb)";
             }
             else if (this.independent && this.a != null && this.b != null){
                 this.aAb = this.a*this.b;
-                return "P(aAb) = P(a) * P(b) reason: Independent"
+                return "P(aAb) = P(a) * P(b) reason: Independent";
             }
 
         }
@@ -174,56 +174,56 @@ class Probabilities{
         if (this.aANb == null){
             if (this.a != null && this.Nb!= null && this.aUNb != null){
                 this.aANb = this.a + this.Nb - this.aUNb;
-                return "P(aANb) = P(a) + P(Nb) - P(AUNb)"
+                return "P(aANb) = P(a) + P(Nb) - P(AUNb)";
             }
             else if (this.a != null && this.NbGa != null){
                 this.aANb = this.a * this.NbGa;
-                return "P(aANb) = P(a) * P(NbGa)"
+                return "P(aANb) = P(a) * P(NbGa)";
             }
             else if (this.b != null && this.aGb != null){
                 this.aANb = this.Nb * this.aGNb;
-                return "P(aANb) = P(Nb) * P(aGNb)"
+                return "P(aANb) = P(Nb) * P(aGNb)";
             }
         }
-        else return ""
+        else return "";
     }
     
     calc_NaAb(){
         if (this.NaAb == null){
             if (this.Na != null && this.b!= null && this.NaUb != null){
                 this.NaAb = this.Na + this.b - this.NaUb;
-                return "P(NaAb) = P(Na) + P(b) - P(NaUb)"
+                return "P(NaAb) = P(Na) + P(b) - P(NaUb)";
             }
             else if (this.Na != null && this.bGNa != null){
                 this.NaAb = this.Na * this.bGNa;
-                return "P(NaAb) = P(Na) * P(bGNa)"
+                return "P(NaAb) = P(Na) * P(bGNa)";
             }
             else if (this.b != null && this.NaGb != null){
                 this.NaAb = this.b * this.NaGb;
-                return "P(NaAb) = P(b) * P(NaGb)"
+                return "P(NaAb) = P(b) * P(NaGb)";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     calc_NaANb(){
         if (this.NaANb == null){
             if (this.Na != null && this.Nb!= null && this.NaUNb != null){
                 this.NaANb = this.Na + this.Nb - this.NaUNb;
-                return "P(NaANb) = P(Na) + P(Nb) - P(NaUNb)"
+                return "P(NaANb) = P(Na) + P(Nb) - P(NaUNb)";
             }
             else if (this.Na != null && this.NbGNa != null){
                 this.NaANb = this.Na * this.NbGNa;
-                return "P(NaANb) = P(Na) * P(NbGNa)"
+                return "P(NaANb) = P(Na) * P(NbGNa)";
             }
             else if (this.Nb != null && this.NaGNb != null){
                 this.NaANb = this.Nb * this.NaGNb;
-                return "P(NaANb) = P(Nb) * P(NaGNb)"
+                return "P(NaANb) = P(Nb) * P(NaGNb)";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     
@@ -231,93 +231,93 @@ class Probabilities{
         if (this.Na == null){
             if (this.a != null){
                 this.Na = 1-this.a;
-                return "P(Na) = 1 - P(a)"
+                return "P(Na) = 1 - P(a)";
             }
             else if (this.NaUb != null && this.NaAb != null && this.b != null){
                 this.Na = this.NaUb + this.NaAb -this.b;
-                return "P(Na) = P(NaUb) + P(NaAb) - P(b)"
+                return "P(Na) = P(NaUb) + P(NaAb) - P(b)";
             }
             else if (this.NaAb != null && this.bGNa != null && this.bGNa != 0){
                 this.Na = this.NaAb / this.bGNa;
-                return "P(Na) = P(NaAb) / P(bGNa)"
+                return "P(Na) = P(NaAb) / P(bGNa)";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     calc_Nb(){
         if (this.Nb == null){
             if (this.b != null){
                 this.Nb = 1-this.b;
-                return "P(Nb) = 1 - P(b)"
+                return "P(Nb) = 1 - P(b)";
             }
             else if (this.aUNb != null && this.aANb != null && this.a != null){
                 this.Nb = this.aUNb + this.aANb -this.a;
-                return "P(Nb) = P(aUNb) + P(aANb) - P(a)"
+                return "P(Nb) = P(aUNb) + P(aANb) - P(a)";
             }
             else if (this.aANb != null && this.aGNb != null && this.aGNb != 0){
                 this.Nb = this.aANb / this.aGNb;
-                return "P(Nb) = P(aANb) / P(aGNb)"
+                return "P(Nb) = P(aANb) / P(aGNb)";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     calc_a(){
         if (this.a == null){
             if (this.Na != null){
                 this.a = 1-this.Na;
-                return "P(a) = 1 - P(Na)"
+                return "P(a) = 1 - P(Na)";
             }
             else if (this.aUb != null && this.aAb != null && this.b != null){
                 this.a = this.aUb + this.aAb -this.b;
-                return "P(a) = P(aUb) + P(aAb) - p(b)"
+                return "P(a) = P(aUb) + P(aAb) - p(b)";
             }
             else if (this.aAb != null && this.bGa != null && this.bGa != 0){
                 this.a = this.aAb / this.bGa;
-                return "P(a) = P(aAb) / P(bGa)"
+                return "P(a) = P(aAb) / P(bGa)";
             }
         }
-        else return ""
+        else return "";
     }
     
     calc_b(){
         if (this.b == null){
             if (this.Nb != null){
                 this.b = 1-this.Nb;
-                return "P(b) = 1 - P(Nb)"
+                return "P(b) = 1 - P(Nb)";
             }
             else if (this.aUb != null && this.aAb != null && this.a != null){
                 this.b = this.aUb + this.aAb -this.a;
-                return "P(b) = P(aUb) + P(aAb) - P(a)"
+                return "P(b) = P(aUb) + P(aAb) - P(a)";
             }
             else if (this.aAb != null && this.aGb != null && this.aGb != 0){
                 this.b = this.aAb / this.aGb;
-                return "P(b) = P(aAb) / P(aGb)"
+                return "P(b) = P(aAb) / P(aGb)";
             }
         }
-        else return ""
+        else return "";
     }
     
     calc_aGb(){
         if (this.aGb == null){
             if (this.NaGb != null){
                 this.aGb = 1 - this.NaGb;
-                return "P(aGb) = 1 - P(NaGb)"
+                return "P(aGb) = 1 - P(NaGb)";
             }
             else if (this.aAb != null && this.b != null && this.b != 0){
                 this.aGb = this.aAb / this.b;
-                return "P(aGb) = P(aAb) / P(b)"
+                return "P(aGb) = P(aAb) / P(b)";
             }
             else if (this.bGa != null && this.a != null && this.bGNa != null && this.Na != null){
                 this.aGb = (this.bGa * this.a)/(this.bGa * this.a + this.bGNa * this.Na);
-                return "P(aGb) = (P(bGa) * P(a) / (P(bGa) * P(a) + P(bGNa) * P(Na))  reason: Bayes Theorem"
+                return "P(aGb) = (P(bGa) * P(a) / (P(bGa) * P(a) + P(bGNa) * P(Na))  reason: Bayes Theorem";
             }
 
         }
-        else return ""
+        else return "";
         
     }
     
@@ -325,149 +325,149 @@ class Probabilities{
         if (this.aGNb == null){
             if (this.NaGNb != null){
                 this.aGNb = 1 - this.NaGNb;
-                return  "P(aGNb) = 1 - P(NaGNb)"
+                return  "P(aGNb) = 1 - P(NaGNb)";
             }
             else if (this.aANb != null && this.Nb != null && this.Nb!=0){
                 this.aGNb = this.aANb / this.Nb;
-                return "P(aGNb) = P(aANb) / P(Nb)"
+                return "P(aGNb) = P(aANb) / P(Nb)";
             }
             else if (this.NbGa != null && this.a != null && this.NbGNa != null && this.Na != null){
                 this.aGNb = (this.NbGa * this.a)/(this.NbGa * this.a + this.NbGNa * this.Na);
-                return "P(aGNb) = (P(NbGa) * P(a)) / (P(NbGa) * P(a) + P(NbGNa) * P(Na))  reason: Bayes Theorem"
+                return "P(aGNb) = (P(NbGa) * P(a)) / (P(NbGa) * P(a) + P(NbGNa) * P(Na))  reason: Bayes Theorem";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     calc_NaGb(){
         if (this.NaGb == null){
             if (this.aGb != null){
                 this.NaGb = 1 - this.aGb;
-                return "P(NaGb) = 1 - P(aGb)"
+                return "P(NaGb) = 1 - P(aGb)";
             }
             else if (this.NaAb != null && this.b != null && this.b != 0){
                 this.NaGb = this.NaAb / this.b;
-                return "P(NaGb) = P(NaAb) / P(b)"
+                return "P(NaGb) = P(NaAb) / P(b)";
             }
             else if (this.bGNa != null && this.Na != null && this.bGa != null && this.a != null){
                 this.NaGb = (this.bGNa * this.Na)/(this.bGNa * this.Na + this.bGa * this.a);
-                return "P(NaGb) = (P(bGNa) * P(Na)) / (P(bGNa) * P(Na) + P(bGa) * P(a)) reason: Bayes Theorem"
+                return "P(NaGb) = (P(bGNa) * P(Na)) / (P(bGNa) * P(Na) + P(bGa) * P(a)) reason: Bayes Theorem";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     calc_NaGNb(){
         if (this.NaGNb == null){
             if (this.aGNb != null){
                 this.NaGNb = 1 - this.aGNb;
-                return "P(NaGNb) = 1 - P(aGNb)"
+                return "P(NaGNb) = 1 - P(aGNb)";
             }
             else if (this.NaANb != null && this.Nb != null && this.Nb != 0){
                 this.NaGNb = this.NaANb / this.Nb;
-                return "P(NaGNb) = P(NaANb) / P(Nb)"
+                return "P(NaGNb) = P(NaANb) / P(Nb)";
             }
             else if (this.NbGNa != null && this.Na != null && this.NbGa != null && this.a != null){
                 this.NaGNb = (this.NbGNa * this.Na)/(this.NbGNa * this.Na + this.bGa * this.a);
-                return "P(NaGNb) = (P(NbGNa) * P(Na)) / (P(NbGNa) * P(Na) + P(bGa) * P(a))  reason: Bayes Theorem"
+                return "P(NaGNb) = (P(NbGNa) * P(Na)) / (P(NbGNa) * P(Na) + P(bGa) * P(a))  reason: Bayes Theorem";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     calc_bGa(){
         if (this.bGa == null){
             if (this.NbGa != null){
                 this.bGa = 1 - this.NbGa;
-                return "P(bGa) = 1 - P(NbGa)"
+                return "P(bGa) = 1 - P(NbGa)";
             }
             else if (this.aAb != null && this.a != null && this.a != 0){
                 this.bGa = this.aAb / this.a;
-                return "P(bGa) = P(aAb) / P(a)"
+                return "P(bGa) = P(aAb) / P(a)";
             }
             else if (this.aGb != null && this.b != null && this.aGNb != null && this.Nb != null){
                 this.bGa = (this.aGb * this.b)/(this.aGb * this.b + this.aGNb * this.Nb);
-                return "P(bGa) = (P(aGb) * P(b)) / (P(aGb) * P(b) + P(aGNb) * P(Nb))  reason: Bayes Theorem"
+                return "P(bGa) = (P(aGb) * P(b)) / (P(aGb) * P(b) + P(aGNb) * P(Nb))  reason: Bayes Theorem";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     calc_bGNa(){
         if (this.bGNa == null){
             if (this.NbGNa != null){
                 this.bGNa = 1 - this.NbGNa;
-                return "P(bGNa) = 1 - P(NbGNa)"
+                return "P(bGNa) = 1 - P(NbGNa)";
             }
             else if (this.NaAb != null && this.Na != null && this.Na != 0){
                 this.bGNa = this.NaAb / this.Na;
-                return "P(bGNa) = P(NaAb) / P(Na)"
+                return "P(bGNa) = P(NaAb) / P(Na)";
             }
             else if (this.NaGb != null && this.b != null && this.NaGNb != null && this.Nb != null){
                 this.bGNa = (this.NaGb * this.b)/(this.NaGb * this.b + this.NaGNb * this.Nb);
-                return "P(bGNa) = (P(NaGb) * P(b)) / (P(NaGb) * P(b) + P(NaGNb) * P(Nb))  reason: Bayes Theorem"
+                return "P(bGNa) = (P(NaGb) * P(b)) / (P(NaGb) * P(b) + P(NaGNb) * P(Nb))  reason: Bayes Theorem";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     calc_NbGa(){
         if (this.NbGa == null){
             if (this.bGa != null){
                 this.NbGa = 1 - this.bGa;
-                return "P(NbGa) = 1 - P(bGa)"
+                return "P(NbGa) = 1 - P(bGa)";
             }
             else if (this.aANb != null && this.a != null && this.a != 0){
                 this.NbGa = this.aANb / this.a;
-                return "P(NbGa) = P(aANb) / P(a)"
+                return "P(NbGa) = P(aANb) / P(a)";
             }
             else if (this.aGNb != null && this.Nb != null && this.aGb != null && this.b != null){
                 this.NbGa = (this.aGNb * this.Nb)/(this.aGNb * this.Nb + this.aGb * this.b);
-                return "P(NbGa) = (P(aGNb) * P(Nb)) / (P(aGNb) * P(Nb) + P(aGb) * P(b))  reason: Bayes Theorem"
+                return "P(NbGa) = (P(aGNb) * P(Nb)) / (P(aGNb) * P(Nb) + P(aGb) * P(b))  reason: Bayes Theorem";
             }
 
         }
-        else return ""
+        else return "";
     }
     
     calc_NbGNa(){
         if (this.NbGNa == null){
             if (this.bGNa != null){
                 this.NbGNa = 1 - this.bGNa;
-                return "P(NbGNa) = 1 - P(bGNa)"
+                return "P(NbGNa) = 1 - P(bGNa)";
             }
             else if (this.NaANb != null && this.Na != null && this.Na != 0){
                 this.NbGNa = this.NaANb / this.Na;
-                return "P(NbGNa) = P(NaANb) / P(Na)"
+                return "P(NbGNa) = P(NaANb) / P(Na)";
             }
             else if (this.NaGNb != null && Nb != null && this.NaGb != null && this.b != null){
                 this.NbGNa = (this.NaGNb * this.Nb)/(this.NaGNb * this.Nb + this.NaGb * this.b);
-                return "P(NbGNa) = (P(NaGNb) * P(Nb)) / (P(NaGNb) * P(Nb) + P(NaGb) * P(b)  reason: Bayes Theorem"
+                return "P(NbGNa) = (P(NaGNb) * P(Nb)) / (P(NaGNb) * P(Nb) + P(NaGb) * P(b)  reason: Bayes Theorem";
             }
 
         }
-        else return ""
+        else return "";
     }
 }
 
 
 function getElementValue(elementID) {
     
-    var num = parseFloat(document.getElementById(elementID).value)
+    var num = parseFloat(document.getElementById(elementID).value);
     
-    if (isNaN(num)) return null
-    else return num
+    if (isNaN(num)) return null;
+    else return num;
     
 }
 
 function getSwitchState(elementID) {
     
-    return (document.getElementById(elementID).checked)
+    return (document.getElementById(elementID).checked);
     
 }
 
@@ -500,7 +500,7 @@ function displayDangerMessage(message){
         
     </div>
 
-    `
+    `;
 }
 
 function displayWarningMessage(message){
@@ -515,7 +515,7 @@ function displayWarningMessage(message){
         
     </div>
 
-    `
+    `;
 }
 function displaySuccessMessage(message){
     document.getElementById("alert").innerHTML = `
@@ -529,7 +529,7 @@ function displaySuccessMessage(message){
         
     </div>
 
-    `
+    `;
 }
 
 function displayInfoMessage(message){
@@ -544,22 +544,22 @@ function displayInfoMessage(message){
         
     </div>
 
-    `
+    `;
 }
 function createCardForWorkingOut(workingOut){
     return `
     <div class="card m-2 p-2 bg-opacity-50 bg-light justify-content-center">
         <p class="card-text"> ${workingOut} </p>
     </div>
-    `
+    `;
 }
 
 function displayAllWorkingOut(workingOutArr){
     document.getElementById("workingOut").innerHTML = ""
     workingOutArr.forEach(work => {
-        document.getElementById("workingOut").innerHTML += createCardForWorkingOut(work)
+        document.getElementById("workingOut").innerHTML += createCardForWorkingOut(work);
 
-    })
+    });
     
 }
 
