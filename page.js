@@ -1,5 +1,5 @@
-function scrollToInfo() {
+function scrollToAbout() {
 
-    location.hash = "#info";
+    location.hash = "#about";
 
 }
