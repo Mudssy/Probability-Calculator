@@ -78,11 +78,16 @@ class Probabilities{
         }
     }
 
+    aux(value){
+        return 0 <= value && value <= 1
+    }
+
     validateValues() {
 
         const ids = ["a", "b", "Na", "Nb", "aUb", "aUNb", "NaUb", "NaUNb", "aAb", "aANb", "NaAb", "NaANb", "aGb", "aGNb", "NaGb", "NaGNb", "bGa", "bGNa", "NbGa", "NbGNa"];
+
         
-        return !(ids.map(id => {0 <= this[id] && this[id] <= 1}).includes(false));
+        return !(ids.map(id => this.aux(this[id])).includes(false));
         
     }
     
@@ -345,11 +350,52 @@ function isValid(){
     
 }
 
-function writeErrorMessage() {
-    
-    document.getElementById("message").innerHTML = "<h3>Probabilities Are Impossible!!!</h3>";
-    
+
+function displayDangerMessage(message){
+    document.getElementById("alert").innerHTML = `
+
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <p>
+            <span class="bi bi-exclamation-triangle"> 
+            ${message}
+        </p>
+
+        
+    </div>
+
+    `
 }
+
+function displayWarningMessage(message){
+    document.getElementById("alert").innerHTML = `
+
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+        <p>
+            <span class="bi bi-exclamation-triangle"> 
+            ${message}
+        </p>
+
+        
+    </div>
+
+    `
+}
+function displaySuccessMessage(message){
+    document.getElementById("alert").innerHTML = `
+
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+        <p>
+            <span class="bi bi-check-circle"> 
+            ${message}
+        </p>
+
+        
+    </div>
+
+    `
+}
+
+
 
 function fillProbabilities() {
     
@@ -386,15 +432,21 @@ function setValues(probs) {
     
     const ids = ["a", "b", "Na", "Nb", "aUb", "aUNb", "NaUb", "NaUNb", "aAb", "aANb", "NaAb", "NaANb", "aGb", "aGNb", "NaGb", "NaGNb", "bGa", "bGNa", "NbGa", "NbGNa", "mutually_exclusive", "independent"];
     
+    var allCalculated = true
     ids.forEach(id => {
         
         var testing = document.getElementById(id);
         var prob = probs[id]
 
-        if (prob == null) testing.value = ""
+        if (prob == null) {
+            allCalculated = false
+            testing.value = ""
+        }
         else testing.value = Math.round(prob * 100000) / 100000;
 
     })
+
+    return allCalculated
     
 }
 
@@ -416,15 +468,19 @@ function updateDocument() {
         
         var prob = fillProbabilities();
         
-        if (prob.validateValues()) {
-            document.getElementById("message").innerHTML = "<h3>Calculated the Probabilities!!</h3>";  
-            setValues(prob)
+        if (prob.validateValues()) { 
+            if(setValues(prob)){
+                displaySuccessMessage("Probabilites calculated successfully")
+            }
+            else {
+                displayWarningMessage("Not enough information provided to calculate all probabilities")
+            }
 
         } else {
-            writeErrorMessage()
+            displayDangerMessage("Impossible probabilities given")
         }
         
     }
-    else writeErrorMessage()
+    else displayWarningMessage("Please enter valid probabilities")
 
 }
