@@ -17,5 +17,5 @@ The website will display the calculated probability or conditional probability i
 The website uses the basic probability formulas and Bayes' theorem to calculate the probabilities and conditional probabilities. When the user inputs the probability values and events, the website applies the appropriate formula to calculate the probability or conditional probability and displays the result.
 
 
-Acknowledgements
+# Acknowledgements
 Thanks to the creators of JavaScript and the various libraries used in this project.
