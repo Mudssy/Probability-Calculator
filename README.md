@@ -1,6 +1,6 @@
 # Probability Calculator
 # Overview
-Probability Calculator is a website that allows users to calculate probabilities and conditional probabilities using probabilities given by the user. It is coded in pure JavaScript and hosted at [probability-calculator.net](probability-calculator.net).
+Probability Calculator is a website that allows users to calculate probabilities and conditional probabilities using probabilities given by the user. It is coded in pure JavaScript and hosted at [probability-calculator.net](www.probability-calculator.net).
 
 # Usage
 Go to probability-calculator.net in your web browser.
